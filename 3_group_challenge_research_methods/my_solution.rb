@@ -5,18 +5,30 @@ my_family_pets_ages = {"Evi" => 6, "Hoobie" => 3, "George" => 12, "Bogart" => 4,
             "Annabelle" => 0, "Ditto" => 3}
 
 # Person 1's solution
+# Pseudocode 1
+# For each value in array, verify if value includes thing_to_find
+# If thing_to_find = True, then select the value
+
+# Pseudocode 2
+# Create newArray bucket for output
+# for each key/value pair in source, push key value into newArray if value matches the thing_to_find
+# Return the newArray results	
+
 def my_array_finding_method(source, thing_to_find)
-  # Your code here!
+  source.select{|value| value.to_s.include?("#{thing_to_find}")}
 end
 
 def my_hash_finding_method(source, thing_to_find)
-  # Your code here!
+  newArray = []
+  source.each { |key,value| newArray << key if value == thing_to_find }
+  return newArray
 end
 
 # Identify and describe the ruby method you implemented. 
-# 
-#
-#
+# For 1, I went pretty Zen and didn't even create an array variable.  By using the .select method, I went thru all values to see if any of it contained the thing_to_find. 
+# The trickiest part of the challenge was to be able to look into any type of variable, thus why I added the .to_s to the value first to match up apples to apples.  
+# For 2, I couldn't think of any shorter way to do it.  To look into a hash, I had to go through each key value pair, and I couldn't find a shorthand command like array.select which automagically creates an array for me.
+# As a result, I declared the array container first and pushed into it everytime there was a value match. 
 
 # Person 2
 def my_array_modification_method(source, thing_to_modify)

@@ -18,37 +18,82 @@
 #     push pad value into array
 #   END LOOP
 # RETURN a padded array w/o altering the input
+# For pad! version, do basically the same code 
+#
+
 
 # 2. Initial Solution
-class Array
-	def pad(min_size, value = nil)
-		my_array = Array
-		if min_size == 0
-			return my_array
-		elsif min_size <= my_array.length
-			return my_array
-		else
-		end
-	end
-	def pad!(min_size, value = nil)
 
-	end
-end
+# class Array
+
+# 	def pad(min_size, pad_value = nil)
+# 		my_array = [] + self
+# 		pad_count = min_size - my_array.length
+# 		if min_size == 0
+# 			return my_array
+# 		elsif min_size <= my_array.length
+# 			return my_array
+# 		else
+# 			pad_count.times do
+# 				my_array << pad_value
+# 			end
+# 			return my_array
+# 		end
+# 	end
+
+# 	def pad!(min_size, pad_value = nil)
+# 		pad_count = min_size - self.length
+# 		if min_size == 0
+# 			return self
+# 		elsif min_size <= self.length
+# 			return self
+# 		else 
+# 			pad_count.times do
+# 				self << pad_value
+# 			end
+# 			return self
+# 		end
+# 	end
+
+# end
 
 
 
 # 3. Refactored Solution
 
+class Array
+	
+	def pad(min_size, pad_value = nil)
 
+		my_array = [] + self
+  	pad_count = min_size - my_array.length
+
+  	unless pad_count > 0
+  		return my_array 
+  	else 
+  		pad_count.times {my_array << pad_value}
+  		return my_array
+  	end
+
+	end
+
+
+	def pad!(min_size, pad_value = nil)
+	  
+	  pad_count = min_size - self.length
+  	
+  	unless pad_count > 0
+  		return self 
+  	else 
+  		pad_count.times {self << pad_value}
+  		return self
+  	end
+
+	end
+
+end
 
 # 4. Reflection 
+# I was very impressed with how Ruby is able to do more with less code.  I'm trying to get out of using if/elsif branching and look for something cleaner, and the closest I found was the unless statement. Probably more room for refactoring, but still like that the new code is somewhat cleaner than before. 
 
-# rspec ./pad_array_spec.rb:12 # Array#pad! operates destructively
-# rspec ./pad_array_spec.rb:16 # Array#pad! doesn't pad a long array
-# rspec ./pad_array_spec.rb:24 # Array#pad operates non-destructively
-# rspec ./pad_array_spec.rb:30 # Array#pad pads elements to the end of an array
-# rspec ./pad_array_spec.rb:38 # Array#pad doesn't pad when minimum size is equal to the array's length
-# rspec ./pad_array_spec.rb:50 # Array#pad pads with nil by default
-# rspec ./pad_array_spec.rb:54 # Array#pad can pad with a string
-# rspec ./pad_array_spec.rb:58 # Array#pad can pad with an object
 

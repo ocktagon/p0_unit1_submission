@@ -87,9 +87,12 @@ end
 # the source array's number in question.
 
 # One challenge I had to do tons of research was for obtaining the highest value in the hash. 
-# My first thought was to do something a reverse.sort of the hash to get the highest value key come first, then I'd later do a loop to start from the first one, and keep on adding to the new array if the next value did not go any lower than the first.
-# I did actually find a way to do the sort, but ran into a problem where it really didn't serve the purpose I wanted because it broke the hash and turned it into a array of arrays.  
-# Rather than go this route, I then decided to simply not alter the hash at all - I realized that if I can just get the maximum value in the hash, I was in business. 
+# My first thought was to do something a reverse.sort of the hash to get the highest value key come first, 
+# then I'd later do a loop to start from the first one, and keep on adding to the new array 
+# if the next value did not go any lower than the first.  I did actually find a way to do the sort, 
+# but ran into a problem where it really didn't serve the purpose I wanted because it broke the hash and 
+# turned it into a array of arrays.  Rather than go this route, I then decided to simply not alter the hash at all - 
+# I realized that if I can just get the maximum value in the hash, I was in business. 
 # Thus, the one-liner code to find the values.max of the hash.  As they say KISS = Keep It Simple Stupid.  
 
 # I also experimented with one-liner exception like conditions for this exercise, 
